@@ -1,0 +1,2 @@
+# WxMaxima
+WxMaxima examples
