@@ -1,0 +1,137 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+/* Programming */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+tangent(fn, x) :=
+       diff(fn(x), x) / ((diff(fn(x), x) . diff(fn (x), x))^(1/2))$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+fn(x):=sin(x);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+tangent(fn,x);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/* 1 */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+tangent(fn, x) :=block (
+    [df: diff(fn(x), x)],
+    df / (df . df)^(1/2)
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/* A block is more or less what a procedure body is in languages like Pascal or Ada */
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+tangent(sin(x),x);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/* expressions */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+op (a + b + c);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+args(a + b + c);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+op (sin(3*x));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+args (sin(3*x));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(all)$
+op (f(a, b, g(c), d));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+args (f(a, b, g(c), d));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+op(exp(2*x));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+args(exp(2*x));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(all)$
+allops(a);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+allops(sin(x) + cos(x));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+allOps(expression):=
+ block(
+    [ ],
+    allOpsPriv (expression, [])
+  )$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+allOps(sin(x)+cos(y));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+containsOp(expression, opList) :=block (
+    [x, args, found],
+    if atom(expression) then false else (
+        x:    op(expression),
+        args: args(expression),
+        if member (x, opList) then true else (
+            found : false,
+            for arg in args while not found do
+            found: containsOp(arg, opList),
+            found
+        )
+     ) 
+)$
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
