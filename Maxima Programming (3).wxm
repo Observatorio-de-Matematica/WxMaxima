@@ -1,0 +1,55 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+/* Maxima Programming scope rules */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+function1() := 
+ block ( [var],
+         var: 1,
+         function2(),
+         var);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+function1();
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+function2() :=
+  block( [],
+         var: var + 1,
+         nil);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+function2();
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/* (declaim special var) */
+
+eval_string_lisp("(defun f1
+       ()
+       (prog (var)
+             (setq var 1)
+             (f2)
+             (return var)
+)      )");
+
+eval_string_lisp("(defun f2
+       ()
+       (setq var (+ 1 var))
+)");
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
