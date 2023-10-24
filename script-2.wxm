@@ -1,0 +1,60 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+/* TRAPEZIO */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+matrix: matrix([3,5,7,10],[23,89,6,0])$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+numer:true$
+trapezio(matrix):=
+(
+    block(
+        [x1: 0, n: length(matrix[1]) - 1], /* local var and initialization (parameters) */
+        /* Procedures and functions */
+        if  n > 0
+        then 
+        (
+            for i:1 thru n do x1: x1 + (1/2) * (matrix[1][i+1] - matrix[1][i]) * (matrix[2][i] + matrix[2][i+1]),
+            x1
+        )
+        else
+            print("Not possible!")
+    )
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+trapezio(matrix);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+x1;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+x2;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+if 1=2 then print("hello") else print("fonix");
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
