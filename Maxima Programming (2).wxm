@@ -1,0 +1,189 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+/* Maxima Programming Examples */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/* p0(x) = 1 */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/* p1(x) = x */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/* n*pn(x) = (2*n -1)*x*pn-1(x) - (n - 1)*pn-2(x) */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Legendre1(m, x) :=block ( 
+    [n:m],
+    if n = 0 then 1 else if n = 1 then x else ((2*n - 1)*x*Legendre1(n - 1, x)- (n - 1)  *Legendre1 (n - 2, x)) / n
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Legendre1(3,z);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Legendre1(5,t);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Legendre2(n, x) :=block (
+    [],
+    if n = 0 then 1 else if n = 1 then x else expand(((2*n - 1)*x*Legendre2(n - 1, x)- (n - 1)  *Legendre2 (n - 2, x)) / n)
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Legendre2(3, z);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Legendre2(5, z);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Legendre2(n, x) :=block ( 
+    [],
+    if n = 0 then 1 else if n = 1 then x else (expand((2*n - 1)*x*Legendre2(n - 1, x))- (n - 1) *Legendre2 (n - 2, x)) / n
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Legendre2(n, x) :=block ( 
+    [],
+    if n = 0 then 1 else if n = 1 then x else expand((2*n - 1)/n*x*Legendre2 (n - 1, x))- expand((n - 1)/n  *Legendre2 (n - 2, x))
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+trace(Legendre2);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Legendre2(7,z);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/* N */;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+LegendreN(n, x) :=block ( 
+    [p0, p1, pn, cnt],
+    if n = 0 then return (1) else if n = 1 then return (x),
+    p0 : 1,
+    p1 : x,
+    cnt: 2,
+    while cnt <= n do (
+        pn: expand(((2*cnt - 1)*x*p1- (cnt - 1)  *p0) / cnt),
+        p0: p1,
+        p1: pn,
+        cnt: cnt + 1
+    ),
+    pn
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+LegendreN(n, x) :=block (
+    [p0, p1, pn, cnt],
+    if n = 0 then return (1) else if n = 1 then return (x),
+    p0 : 1,
+    p1 : x,
+    cnt: 2,
+    while block(
+        pn: expand(((2*cnt - 1)*x*p1- (cnt - 1)  *p0) / cnt),
+        cnt: cnt + 1,
+        cnt <= n
+    ) do (
+        p0: p1,
+        p1: pn
+    ),
+    pn
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+LegendreN(n, x) :=block (
+    [p0, p1, pn, cnt],
+    if n = 0 then return (1) else if n = 1 then return (x),
+    p0 : 1,
+    p1 : x,
+    cnt: 2,
+    beginOfLoop,
+    pn: expand(((2*cnt - 1)*x*p1- (cnt - 1)  *p0) / cnt),
+    p0: p1,
+    p1: pn,
+    cnt: cnt + 1,
+    if cnt <= n then go(beginOfLoop),
+    pn
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+LegendreNN(n, x) :=block ( 
+    [cnt, pn, coeffsP0, coeffsP1, coeffsPN, oldList ],
+    if n = 0 then return (1) else if n = 1 then return (x),
+    coeffsP0: makelist (0, x, 0, n),
+    coeffsP1: makelist (0, x, 0, n),
+    coeffsPN: makelist (0, x, 0, n),
+    coeffsP0[1]: 1,
+    coeffsP1[2]: 1,
+    cnt: 2,
+    while cnt <= n do (
+        coeffsPN[1]: -coeffsP0[1]*(cnt - 1)/cnt,
+        for idx : 2 thru cnt + 1 do coeffsPN[idx] :  ((2*cnt - 1)*coeffsP1[idx - 1]-(cnt - 1)*coeffsP0[idx])/ cnt,
+        oldList: coeffsP0,
+        coeffsP0: coeffsP1,
+        coeffsP1: coeffsPN,
+        coeffsPN: oldList,
+        cnt: cnt + 1
+    ),
+    pn: 0,
+    for idx:1 thru n + 1 do pn: pn + coeffsP1[idx]*x^(idx - 1),
+    pn
+)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+showtime:true$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+LegendreN(200, x)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+LegendreNN(200, x)$
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
