@@ -1,0 +1,27 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+kill(all)$
+linsolve([2*x+y+3*z-2*w=-6, 4*x+3*y+z-w =-2, x+y+z+w =-5, -2*x-2*y-2*z+2*w =-10], [x,y,z,w]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(all)$
+M:matrix([2,1,3,-2],[4,3,1,-1],[1,1,1,1],[-2,-2,-2,2]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+adjoint(M).matrix([-6],[-2],[-5],[-10]) / determinant(M);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+X:determinant(matrix([-6,1,3,-2],[-2,3,1,-1],[-5,1,1,1],[-10,-2,-2,2])) / determinant(M);
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
