@@ -1,0 +1,155 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/*CALCULOS TEE REGIAO A e B*/;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+M_A:20.0417;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Q_A:6.4417/sqrt(120);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+M_B:21.5417;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+Q_B:6.0909/sqrt(120);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+paa:19.0745;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+pbb:20.6271;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+A: [[M_A, 0],[M_A,0.52]];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+B: [[M_B, 0],[M_B,0.535]];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+PAA:[[paa,0],[paa,0.135]];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+PBB:[[pbb,0],[pbb,0.14]];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+TEE_A(x):=1/sqrt(2*%pi*Q_A)*%e^-(1/2*((x-M_A)/Q_A)^2);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+TEE_B(x):=1/sqrt(2*%pi*Q_B)*%e^-(1/2*((x-M_B)/Q_B)^2);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+wxplot2d([TEE_A(x),TEE_B(x),[discrete,A],[discrete,B],[discrete,PAA],[discrete,PBB]],[x,17.95,23.5],[y,0,0.55],[legend,"Região A","Região B","média A","média B","Pa=0.05","Pb=0.05"],[xlabel,"TEE   Tempo em u.t."],[ylabel,"Quant u.t. %"],grid2d);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/*CALCULOS NEE REGIAO A e B*/;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+m_A:6.6111;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+q_A:2.3112/sqrt(90);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+m_B:7.5111;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+q_B:2.5140/sqrt(90);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+pa:6.2104;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+pb:7.0752;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+a: [[m_A, 0],[m_A,0.81]];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+b: [[m_B, 0],[m_B,0.77]];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+PA:[[pa,0],[pa,0.215]];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+PB:[[pb,0],[pb,0.20]];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+NEE_A(x):=1/sqrt(2*%pi*q_A)*%e^-(1/2*((x-m_A)/q_A)^2);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+NEE_B(x):=1/sqrt(2*%pi*q_B)*%e^-(1/2*((x-m_B)/q_B)^2);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+wxplot2d([NEE_A(x),NEE_B(x),[discrete,a],[discrete,b],[discrete,PA],[discrete,PB]],[x,5.6,8.6],[y,0,0.85],[legend,"Região A","Região B","média A","média B","Pa=0.05","Pb=0.05"],[xlabel,"NEE  Nº Entregas por u.t."],[ylabel,"Quant Entregas %"],grid2d);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/*END CALC*/
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$

@@ -1,0 +1,135 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+A:16;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+B:16;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+C:256;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+D:256;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+E:16;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(a,b,c,d,e):=a+B*b+A*B*c+A*B*C*d+A*B*C*D*e;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(0,0,0,0,0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(1,0,0,0,0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(0,1,0,0,0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(3,1,2,0,0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(3,3,1,0,0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(3,3,3,0,0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(0,0,0,1,0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(3,3,3,3,0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(0,0,0,0,1);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(15,15,255,0,0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+%*8;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+2^8;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+2^16;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+2^32;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+2^24;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+2^25;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+(2^24)*8;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+2^32;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+"32 bits can only represent four dimensions of eight bits";
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+2^4;
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
